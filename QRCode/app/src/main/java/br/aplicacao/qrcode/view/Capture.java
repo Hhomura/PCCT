@@ -1,4 +1,4 @@
-package br.aplicacao.qrcode;
+package br.aplicacao.qrcode.view;
 
 import com.journeyapps.barcodescanner.CaptureActivity;
 

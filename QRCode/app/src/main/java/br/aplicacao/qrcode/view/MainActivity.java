@@ -1,4 +1,4 @@
-package br.aplicacao.qrcode;
+package br.aplicacao.qrcode.view;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import br.aplicacao.qrcode.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this
                     ));
             //Set title
-            builder.setTitle("REsult");
+            builder.setTitle("Result");
             builder.setMessage(result.getContents());
 
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
