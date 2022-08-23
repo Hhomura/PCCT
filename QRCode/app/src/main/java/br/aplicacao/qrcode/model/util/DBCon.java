@@ -1,6 +1,7 @@
 package br.aplicacao.qrcode.model.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 public class DBCon {
@@ -12,9 +13,11 @@ public class DBCon {
 
     public static Connection connectDB(){
         try {
-             return DriverManager.getConnection(DATABASE, USERNAME, PASSWORD);
+            Connection con = DriverManager.getConnection(DATABASE, USERNAME, PASSWORD);
+            System.gc();
+            return con;
         }
-        catch(java.sql.SQLException exception){
+        catch(SQLException exception){
             exception.printStackTrace();
             return null;
         }
