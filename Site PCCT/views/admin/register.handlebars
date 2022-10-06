@@ -1,0 +1,22 @@
+{{#each erros}}
+<div class="alert alert-danger">{{texto}}</div>
+{{/each}}
+
+<h2>Registrar Novo Administrador</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/register" method="post">
+            <label for="nome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="nome">
+            <label for="email">Email:</label>
+            <input class="form-control" type="text" name="email" id="email">
+            <label  for="senha">Senha:</label>
+            <input class="form-control" type="password" name="senha" id="senha">
+            <label for="rsenha">Repita sua Senha:</label>
+            <input class="form-control" type="password" name="rsenha" id="rsenha">
+            <button type="submit" class="btn btn-primary mt-4" >Criar Admin</button>
+            <a href="/" style="width: 100px;"><button type="button" class="btn btn-secondary mt-4" >Cancelar</button></a>
+        </form>
+    </div>
+</div>

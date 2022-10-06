@@ -1,0 +1,11 @@
+<h2>Turma do Aluno</h2>
+
+<div class="card">
+    <div class="card-body">
+        {{#each alunoturma}}
+        <h3>Turma: {{Turma.curso}} {{Turma.ano}}</h3>
+        {{else}}
+        <h3>nenhuma turma registrada</h3>
+        {{/each}}
+    </div>
+</div>

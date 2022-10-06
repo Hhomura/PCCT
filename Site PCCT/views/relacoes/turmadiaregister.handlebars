@@ -1,0 +1,35 @@
+<h2>Vinculação de Turma ao dia letivo</h2>
+
+<form action="/relacoes/TurmaDVinculo/register" method="post">
+    <div class="card">
+        <div class="card-body">
+            <label for="turma">Turmas: </label>
+            <select name="turma" class="form-select" aria-label="Default select example">
+                {{#each turma}}
+                <option id="turma" value="{{id}}" >{{curso}} {{ano}}</option>
+                {{else}}
+                <option value="0">Nenhuma Turma Registrada</option>
+                {{/each}}
+            </select>
+
+            <label for="turno">Turno: </label>
+            <select name="turno" class="form-select" aria-label="Default select example">
+                <option id="turno" selected disabled value="0" >Turnos</option>
+                <option id="turno" value="manha">Manhã</option>
+                <option id="turno" value="tarde">Tarde</option>
+                <option id="turno" value="ambos">Todas Refeições</option>
+            </select>
+
+            <label for="diasletivos">Dias Letivos: </label>
+            <select name="diasletivos" class="form-select" aria-label="Default select example">
+                {{#each dias}}
+                <option id="diasletivos" value="{{id}}">Data do Dia: {{data}}</option>
+                {{else}}
+                <option value="0">Nenhuma data Registrada</option>
+                {{/each}}
+            </select>
+                <button type="submit" class="btn btn-success mt-4">Vincular</button>
+                <a href="/relacoes/TurmaDia" class="btn btn-danger mt-4">Cancelar</a>
+        </div>
+    </div>
+</form>

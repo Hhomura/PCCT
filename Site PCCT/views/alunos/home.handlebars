@@ -1,0 +1,19 @@
+<h2>Cadastro e Manipuilação dos dados dos alunos</h2>
+
+<a href="/alunos/register"><button class="btn btn-success">Cadastrar Novo Aluno</button></a>
+
+<hr>
+
+<div class="card">
+    <div class="card-body">
+        {{#each alunos}}
+        <p>Nome do Aluno:<strong>{{nome}}</strong> </p>
+        <a href="">
+            <p>RFID:<strong><ins>{{rfid}}</ins></strong> </p>
+        </a>
+        <hr>
+        {{else}}
+        <h2>Nenhum Aluno Cadastrado</h2>
+        {{/each}}
+    </div>
+</div>

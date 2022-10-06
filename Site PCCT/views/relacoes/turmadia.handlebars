@@ -1,0 +1,17 @@
+<h2>Turma e Dias Letivos</h2>
+
+<a href="/relacoes/TurmaDVinculo/register"><button class="btn btn-success mt-4">Vincular Turma a Algum dia</button></a>
+
+<div class="card mt-4">
+    <div class="card-body">
+        {{#each dias}}
+        <h4>DiaLetivo data: {{data}}</h4>
+        <a href="/relacoes/TurmaDia/{{id}}">
+            <p>Turmas que fazem parte</p>
+        </a>
+        <hr>
+        {{else}}
+        <h3>Nenhuma Turma e dia Vinculado</h3>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h2>Cadastro e Manipulação de dados da turma.</h2>
+
+<a href="/turmas/register"><button class="btn btn-primary btn-lg" >Cadastrar nova Turma</button></a>
+
+<hr>
+<h2>Turmas Cadastradas: </h2>
+
+{{#each turmas}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>Curso: {{curso}}</h3>
+        <h5>Ano: {{ano}}</h3>
+        <a href="/turmas/update/{{id}}"><button class="btn btn-secondary">Editar</button></a>
+        <a href="/turmas/delete/{{id}}"><button class="btn btn-danger">Deletar</button></a>
+    </div>
+</div>
+
+{{else}}
+
+<h4 class="mt-4">Nenhuma Turma Cadastrada.</h4>
+{{/each}}
