@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ios_android/qrcode_page.dart';
+import 'package:ios_android/HomePageController.dart';
+import 'package:ios_android/RegisteredPage.dart';
+
+import 'HomePage.dart';
 
 void main() {
   runApp(const App());
@@ -10,22 +13,26 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.blueAccent,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.amberAccent,
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 36),
-            onPrimary: Colors.black,
-            textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-        ),
-      ),
-      themeMode: ThemeMode.dark,
-      home: const QRCodePage(),
+    return AnimatedBuilder(
+      animation: HomePageController.instance,
+      builder: (context, child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primarySwatch: Colors.red,
+              fontFamily: "sans-serif",
+              brightness: HomePageController.instance.isDarkBrightness
+                  ? Brightness.dark
+                  : Brightness.light,
+
+            ),
+            initialRoute: '/',
+            routes: {
+              '/': (context) => const HomePage(),
+              '/Registered' : (context) => const RegisteredPage(),
+            }
+        );
+      },
     );
   }
 }
