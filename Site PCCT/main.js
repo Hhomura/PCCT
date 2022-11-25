@@ -7,7 +7,7 @@ const flash = require("connect-flash");
 
 //CONFIGURAÇÕES PASSPORT
 const passport = require("passport");
-require("./controller/auth")(passport);
+require("./controller/Auth")(passport);
 //PATH
 const path = require('path')
 

@@ -11,5 +11,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.21.6"
+  },
+  "scripts": {
+    "start": "node main.js"
   }
 }
