@@ -99,7 +99,7 @@ class HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                         fontSize: 22),
                   ),
-                  onPressed: () => Http().alunoGet(),
+                  onPressed: () => Http().turmaGet(),
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(

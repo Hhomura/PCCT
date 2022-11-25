@@ -1,8 +1,22 @@
 //Read Only
 class Turma {
-  final int idTurma;
+  final int id;
   final String curso;
   final String ano;
 
-  const Turma(this.idTurma, this.curso, this.ano);
+  Turma.db(this.id, this.curso, this.ano);
+
+  Map toJson() => {
+        "id_Turma": id,
+        "curso": curso,
+        "ano": ano,
+      };
+
+  factory Turma.fromJson(Map<String, dynamic> json) {
+    return Turma.db(
+      json['id_Turma'] as int,
+      json['curso'] as String,
+      json['ano'] as String,
+    );
+  }
 }

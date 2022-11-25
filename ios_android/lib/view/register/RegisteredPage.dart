@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-const List<String> courseOpt = <String>[
-  "Recursos Pesqueiros",
-  "Jogos Digitais",
-  "Administração"
-];
+const List<String> courseOpt = <String>["JOGOS", "RP", "ADM"];
 const List<String> yearOpt = <String>["1", "2", "3"];
 String courseIcon = "ifamlogo.png";
 
