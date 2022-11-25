@@ -1,0 +1,12 @@
+<h2>Atualizar Dados da Turma </h2>
+<div class="card">
+    <div class="card-body">
+        <form action="/turmas/update/{{turmas.id}}" method="post">
+            <label for="curso">Curso: </label>
+            <input class="form-control" type="text" name="curso" id="curso" value="{{turmas.curso}}">
+            <label for="ano">ano (ano do curso): </label>
+            <input class="form-control" type="text" name="ano" id="ano" value="{{turmas.ano}}">
+            <button type="submit" class="btn btn-success mt-4">Atualizar dados</button>
+        </form>
+    </div>
+</div>

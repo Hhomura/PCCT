@@ -1,0 +1,16 @@
+<h2>Turma Alunos Home</h2>
+
+<div class="card">
+    <div class="card-body">
+        {{#each turmas}}
+        <h4>curso: {{curso}}</h4>
+        <h4>Ano: {{ano}}</h4>
+        <a href="/relacoes/TurmaAluno/{{id}}">
+            <p>alunos que fazem parte</p>
+        </a>
+        <hr>
+        {{else}}
+        <h3>Nenhuma Turma Cadastrada</h3>
+        {{/each}}
+    </div>
+</div>

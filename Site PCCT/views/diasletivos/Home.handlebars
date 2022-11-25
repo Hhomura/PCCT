@@ -1,0 +1,19 @@
+<h2>Cadastro e Manipulação de Dias Letivos</h2>
+
+<a href="/diasletivos/register"><button class="btn btn-primary btn-lg" >Cadastrar Dia Letivo</button></a>
+
+<hr>
+
+{{#each diasletivos}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <small>{{data}}</small>
+        <small>{{feriado}}</small>
+        <a style="float: right;" href="/diasletivos/update/{{id}}"><button class="btn btn-secondary">Editar</button></a>
+        <a style="float: right; margin-right: 10px;" href="/diasletivos/delete/{{id}}"><button class="btn btn-danger">Deletar</button></a>
+    </div>
+</div>
+{{else}}
+<h4 class="mt-4">Nenhuma data Cadastrada.</h4>
+{{/each}}

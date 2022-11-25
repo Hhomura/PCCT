@@ -1,0 +1,16 @@
+<h2>Alunos Home</h2>
+
+<div class="card">
+    <div class="card-body">
+        {{#each alunos}}
+        <h4>Nome: {{nome}}</h4>
+        <h4>RFID: {{rfid}}</h4>
+        <a href="/relacoes/AlunoTurma/{{id}}">
+            <p>Turma do Aluno</p>
+        </a>
+        <hr>
+        {{else}}
+        <h3>Nenhuma Aluno Cadastrado</h3>
+        {{/each}}
+    </div>
+</div>

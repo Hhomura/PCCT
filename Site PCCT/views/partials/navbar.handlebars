@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">IFAM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+
+        {{#if admin}}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Refeição do Dia</a>
+          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Relações
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/relacoes/TurmaAluno">Turmas e Alunos</a></li>
+              <li><a class="dropdown-item" href="#">Turmas e Refeições</a></li>
+              <li><a class="dropdown-item" href="/relacoes/AlunoTurma">Alunos e Turmas</a></li>
+              <li><a class="dropdown-item" href="/relacoes/TurmaDia">Turmas e dias Letivos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cadastrar
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/alunos/home">Alunos</a></li>
+              <li><a class="dropdown-item" href="/turmas/home">Turmas</a></li>
+              <li><a class="dropdown-item" href="/diasletivos/home">Dias Letivos</a></li>
+              <li><a class="dropdown-item" href="/admin/register">Administrador</a></li>
+            </ul>
+          </li>
+          </ul>
+        {{else}}
+        {{/if}}
+        
+    </div>
+  </div>
+</nav>

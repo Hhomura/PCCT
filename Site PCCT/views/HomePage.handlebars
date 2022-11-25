@@ -1,0 +1,17 @@
+<div class="jumbotron" style="padding: 20px;">
+  <h1 class="display-4">Gerenciamento de Refeições IFAM</h1>
+  <p class="lead">Site responsável para cadastrar turmas/alunos para poder manter um contorle e monitoramento das Refeições que são servidas</p>
+  <hr class="my-4">
+  <p>Projeto criado no IFAM campus avançado de Manacapuru.</p>
+  {{#if admin}}
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/admin/logout" role="button">Sair da conta</a>
+  </p>
+
+  {{else}}
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/admin/login" role="button">Logar como administrador</a>
+  </p>
+  {{/if}}
+  
+</div>

@@ -1,0 +1,12 @@
+<h2>Alunos da Turma</h2>
+
+<div class="card">
+    <div class="card-body">
+        {{#each alunoturma}}
+        <h3>Nome do Aluno: {{aluno.nome}}</h3>
+        <h3>RFID: {{aluno.rfid}}</h3>
+        {{else}}
+        <h3>nenhum aluno registrado</h3>
+        {{/each}}
+    </div>
+</div>

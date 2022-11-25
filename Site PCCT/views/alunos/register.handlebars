@@ -1,0 +1,29 @@
+<h2>Cadastro de alunos</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/alunos/register" method="post">
+        <a href="/alunos/register/extra"><p>Se o ALuno ja foi cadastrado e possui mais de uma turma clique aqui</p></a>
+            <div class="aluno-container">
+                <label style="display: block;" for="nome">Nome: </label>
+                <input class="form-control" type="text" name="nome" id="nome">
+            </div>
+            <label for="turmas">Turmas: </label>
+            <select name="turmas" class="form-select" aria-label="Default select example">
+                {{#each turmas}}
+                <option id="turmas" value="{{id}}" >{{curso}} {{ano}}</option>
+                {{else}}
+                <option value="0">Nenhuma Turmma Registrada</option>
+                {{/each}}
+            </select>
+            <label for="matricula">Matricula: </label>
+            <input class="form-control" type="text" name="matricula" id="matricula">
+            <label for="rfid">RfID (Identficador de Refeição):</label>
+            <input class="form-control" type="text" name="rfid" id="rfid">
+            <label for="numcell">Número de celular(opcional): </label>
+            <input class="form-control" type="text" name="numcell" id="numcell">
+            <button class="btn btn-success mt-4" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
