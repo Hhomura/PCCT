@@ -3,14 +3,30 @@ import mysqlCon from '../database.js';
 
 const router = Router();
 
-let queryCurso = 'SELECT Aluno.nome FROM Aluno, AlunoTurma\
-WHERE AlunoTurma.id_Aluno = Aluno.id_Aluno\
-AND AlunoTurma.id_Turma = (\
-  SELECT Turma.id_Turma FROM Turma\
-  WHERE Turma.curso = ?\
+let queryAlunoCurso = 'SELECT Aluno.* FROM Aluno \
+INNER JOIN AlunoTurma AS AT \
+ON Aluno.id_Aluno = AT.id_Aluno \
+AND AT.id_Turma = \
+( \
+  SELECT Turma.id_Turma \
+  FROM Turma \
+  WHERE Turma.curso = ? \
 );'
 
-let queryCursoDia = ';';
+let queryAlunoCursoDia = 'SELECT Aluno.*, Refeicao.turno FROM ((Aluno \
+INNER JOIN AlunoTurma AS AT \
+ON Aluno.id_Aluno = AT.id_Aluno \
+AND AT.id_Turma = \
+( \
+  SELECT Turma.id_Turma \
+  FROM Turma \
+  WHERE Turma.curso = ? \
+)) \
+INNER JOIN Refeicao \
+ON Refeicao.fk_Aluno = Aluno.id_Aluno \
+AND Refeicao.data = ? \
+);'
+
 router.get('/', (req, res) => {
   res.status(200).json("HTTP OK");
 });
@@ -28,7 +44,7 @@ router.get('/:alunos', (req, res) => {
 
 router.get('/:alunos/:curso', (req, res) => {
     const {curso} = req.params;
-    mysqlCon.query(queryCurso, [curso], (error, rows, fields) => {
+    mysqlCon.query(queryAlunoCurso, [curso], (error, rows, fields) => {
         if(!error){
             res.json(rows);
         } else{
@@ -39,7 +55,7 @@ router.get('/:alunos/:curso', (req, res) => {
 
 router.get('/:alunos/:curso/:dia', (req, res) => {
     const {curso, dia} = req.params;
-    mysqlCon.query('SELECT * FROM Aluno WHERE id_Aluno = ?;', [id], (error, rows, fields) => {
+    mysqlCon.query(queryAlunoCursoDia, [curso, dia], (error, rows, fields) => {
         if(!error){
             res.json(rows);
         } else{
