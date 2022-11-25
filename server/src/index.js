@@ -1,7 +1,8 @@
 import express from 'express';
 const app = express();
 
-import route from './routes/aluno.js'
+import routeAluno from './routes/aluno.js';
+import routeTurma from './routes/turma.js';
 
 // Settings
 app.set('port', process.env.PORT || 8000);
@@ -10,7 +11,8 @@ app.set('port', process.env.PORT || 8000);
 app.use(express.json());
 
 // Routes
-app.use(route);
+app.use(routeAluno);
+app.use(routeTurma);
 
 // Starting the server
 app.listen(app.get('port'), () => {
