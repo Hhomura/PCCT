@@ -13,4 +13,11 @@ router.get('/turmas', (req, res) => {
   });
 })
 
+router.get('/turmas/cursos', (req, res) => {
+  mysqlCon.query("SELECT Turma.curso FROM Turma GROUP BY Turma.curso;", (error, rows, fields) => {
+    (error) ? console.log(error) : res.json(rows);
+  });
+})
+
+
 export default router;

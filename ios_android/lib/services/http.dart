@@ -10,6 +10,7 @@ class Http implements HttpServ {
   final url = 'http://localhost:8000/';
   final routeal = 'alunos/';
   final routetu = 'turmas/';
+  final routecursos = 'turmas/cursos/';
   final headers = {'Content-Type': 'apllication/json'};
   final encodig = Encoding.getByName('utf-8');
 
@@ -32,24 +33,24 @@ class Http implements HttpServ {
     List<Aluno> result = List<Aluno>.from(
         json.decode(res.body).map((json) => Aluno.fromJson(json)));
     result.sort((a, b) => a.id.compareTo(b.id));
-    print(res.statusCode);
-    for (var element in result) {
-      print(element.nome);
-    }
 
     return result;
   }
 
   @override
-  Future<List<Turma>> turmaGet() async {
-    http.Response res = await http.get(Uri.parse('$url$routetu'));
-    List<Turma> result = List<Turma>.from(
-        json.decode(res.body).map((json) => Turma.fromJson(json)));
-    result.sort((a, b) => a.id.compareTo(b.id));
-    print(res.statusCode);
-    for (var element in result) {
-      print(element.curso);
+  Future<List<Turma>> turmaGet({String route = ''}) async {
+    http.Response res = await http.get(Uri.parse('$url$route'));
+
+    if (route == '') {
+      List<Turma> result = List<Turma>.from(
+          json.decode(res.body).map((json) => Turma.fromJson(json)));
+      result.sort((a, b) => a.id.compareTo(b.id));
+
+      return result;
     }
+    List<Turma> result = List<Turma>.from(
+        json.decode(res.body).map((json) => Turma.fromJsonC(json)));
+    result.sort((a, b) => a.id.compareTo(b.id));
 
     return result;
   }

@@ -21,7 +21,7 @@ class HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 110),
+          const SizedBox(height: 40),
           Image.asset(
             "assets/eating.jpg",
             height: 225,

@@ -5,7 +5,6 @@ class Turma {
   final String ano;
 
   Turma.db(this.id, this.curso, this.ano);
-
   Map toJson() => {
         "id_Turma": id,
         "curso": curso,
@@ -18,5 +17,9 @@ class Turma {
       json['curso'] as String,
       json['ano'] as String,
     );
+  }
+
+  factory Turma.fromJsonC(Map<String, dynamic> json) {
+    return Turma.db(-1, json['curso'] as String, "-1");
   }
 }

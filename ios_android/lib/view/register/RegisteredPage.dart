@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ios_android/controller/register.dart';
 
-const List<String> courseOpt = <String>["JOGOS", "RP", "ADM"];
 const List<String> yearOpt = <String>["1", "2", "3"];
 String courseIcon = "ifamlogo.png";
 
@@ -64,7 +64,7 @@ class RegisteredPageState extends State<RegisteredPage> {
                                     break;
                                 }
                               }),
-                          items: courseOpt
+                          items: ["a", "a"]
                               .map<DropdownMenuItem<String>>(
                                   (act) => DropdownMenuItem<String>(
                                         value: act,
