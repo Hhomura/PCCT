@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ios_android/controller/register.dart';
+import 'package:ios_android/controller/register_control.dart';
 
-const List<String> yearOpt = <String>["1", "2", "3"];
 String courseIcon = "ifamlogo.png";
 
 class RegisteredPage extends StatefulWidget {
@@ -13,16 +12,28 @@ class RegisteredPage extends StatefulWidget {
 
 class RegisteredPageState extends State<RegisteredPage> {
   final courseChoice = ValueNotifier("");
-  final yearChoice = ValueNotifier("");
+  turmaCheck() async {
+    while (RegisterControl.instance.turmas.isEmpty) {
+      await Future.delayed(const Duration(seconds: 1));
+      print("Notifying...");
+      setState(() {
+        RegisterControl.instance.updateTurmas();
+      });
+    }
+  }
+
+  List<String> cursos = RegisterControl.instance.cursos;
 
   @override
   Widget build(BuildContext context) {
+    turmaCheck();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 65),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Container(
                 width: 160,
@@ -52,49 +63,27 @@ class RegisteredPageState extends State<RegisteredPage> {
                               (val.toString().isEmpty) ? null : val.toString(),
                           onChanged: (str) => setState(() {
                                 courseChoice.value = str.toString();
-                                switch (str.toString()) {
-                                  case ("Recursos Pesqueiros"):
-                                    courseIcon = "ponyo.jpg";
-                                    break;
-                                  case ("Jogos Digitais"):
-                                    courseIcon = "jogos.jpg";
-                                    break;
-                                  case ("Administração"):
-                                    courseIcon = "adm.jpg";
-                                    break;
+                                if (str.toString().contains("JOGOS")) {
+                                  courseIcon = "jogos.jpg";
+                                } else if (str.toString().contains("RP")) {
+                                  courseIcon = "ponyo.jpg";
+                                } else if (str.toString().contains("ADM")) {
+                                  courseIcon = "ponyo.jpg";
+                                } else if (str.toString().contains("INFO")) {
+                                  courseIcon = "jogos.jpg";
+                                } else {
+                                  courseIcon = "ifamlogo.png";
                                 }
                               }),
-                          items: ["a", "a"]
+                          items: RegisterControl.instance.turmas
                               .map<DropdownMenuItem<String>>(
                                   (act) => DropdownMenuItem<String>(
-                                        value: act,
-                                        child: Text(act),
+                                        value: '${act.curso} ${act.ano}',
+                                        child: Text('${act.curso} ${act.ano}'),
                                       ))
                               .toList()),
                     ),
                   ),
-                  ValueListenableBuilder(
-                      valueListenable: yearChoice,
-                      builder: (context, val, _) => SizedBox(
-                            width: 130,
-                            height: 55,
-                            child: DropdownButton<String>(
-                              isExpanded: true,
-                              hint: const Text("Selecionar Ano"),
-                              value: val.toString().isEmpty
-                                  ? null
-                                  : val.toString(),
-                              onChanged: (str) =>
-                                  yearChoice.value = str.toString(),
-                              items: yearOpt
-                                  .map<DropdownMenuItem<String>>(
-                                      (act) => DropdownMenuItem(
-                                            value: act,
-                                            child: Text(act),
-                                          ))
-                                  .toList(),
-                            ),
-                          )),
                 ],
               ),
             ]),
@@ -106,4 +95,8 @@ class RegisteredPageState extends State<RegisteredPage> {
       ),
     );
   }
+}
+
+Widget alunos() {
+  throw UnimplementedError();
 }

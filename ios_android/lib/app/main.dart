@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ios_android/view/home/HomePageController.dart';
+import 'package:ios_android/controller/HomePageController.dart';
 import 'package:ios_android/view/register/RegisteredPage.dart';
 
 import '../view/home/HomePage.dart';

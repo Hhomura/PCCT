@@ -18,8 +18,4 @@ class Turma {
       json['ano'] as String,
     );
   }
-
-  factory Turma.fromJsonC(Map<String, dynamic> json) {
-    return Turma.db(-1, json['curso'] as String, "-1");
-  }
 }

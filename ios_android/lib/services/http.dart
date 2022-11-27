@@ -38,18 +38,11 @@ class Http implements HttpServ {
   }
 
   @override
-  Future<List<Turma>> turmaGet({String route = ''}) async {
-    http.Response res = await http.get(Uri.parse('$url$route'));
+  Future<List<Turma>> turmaGet() async {
+    http.Response res = await http.get(Uri.parse('$url$routetu'));
 
-    if (route == '') {
-      List<Turma> result = List<Turma>.from(
-          json.decode(res.body).map((json) => Turma.fromJson(json)));
-      result.sort((a, b) => a.id.compareTo(b.id));
-
-      return result;
-    }
     List<Turma> result = List<Turma>.from(
-        json.decode(res.body).map((json) => Turma.fromJsonC(json)));
+        json.decode(res.body).map((json) => Turma.fromJson(json)));
     result.sort((a, b) => a.id.compareTo(b.id));
 
     return result;

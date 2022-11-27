@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ios_android/services/http.dart';
-import 'package:ios_android/view/home/HomePageController.dart';
+import 'package:ios_android/controller/HomePageController.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
