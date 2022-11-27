@@ -1,9 +1,10 @@
 //Read Only
 class Turma {
-  final int id;
-  final String curso;
-  final String ano;
+  int id = -1;
+  String curso = '';
+  String ano = '';
 
+  Turma();
   Turma.db(this.id, this.curso, this.ano);
   Map toJson() => {
         "id_Turma": id,

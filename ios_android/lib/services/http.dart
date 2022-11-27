@@ -18,9 +18,9 @@ class Http implements HttpServ {
 
   String parseRoute(
       {required String? curso, required String? ano, String? dia}) {
-    String route = '$url$routeal';
+    String route = '$url$routeal$curso/$ano/';
 
-    if (dia != null) route += '$curso/$ano/$dia';
+    if (dia != null) route += dia;
 
     print(route);
     return route;

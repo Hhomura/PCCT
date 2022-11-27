@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ios_android/controller/HomePageController.dart';
+import 'package:ios_android/controller/app_controller.dart';
 import 'package:ios_android/view/register/RegisteredPage.dart';
 
 import '../view/home/HomePage.dart';
@@ -14,14 +14,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: HomePageController.instance,
+      animation: AppController.instance,
       builder: (context, child) {
         return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.red,
               fontFamily: "sans-serif",
-              brightness: HomePageController.instance.isDarkBrightness
+              brightness: AppController.instance.isDarkBrightness
                   ? Brightness.dark
                   : Brightness.light,
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePageController extends ChangeNotifier {
-  static HomePageController instance = HomePageController();
+class AppController extends ChangeNotifier {
+  static AppController instance = AppController();
   bool isDarkBrightness = false;
 
   changeBrightness() {
