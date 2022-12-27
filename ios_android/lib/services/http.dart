@@ -7,7 +7,7 @@ import 'package:ios_android/services/httpservices.dart';
 import '../model/turma.dart';
 
 class Http implements HttpServ {
-  final url = 'http://localhost:8000/';
+  final url = 'https://4a7e-138-94-155-100.sa.ngrok.io/';
   final routeal = 'alunos/';
   final routetu = 'turmas/';
   final routecursos = 'turmas/cursos/';

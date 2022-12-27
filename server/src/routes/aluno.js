@@ -39,7 +39,6 @@ router.get('/alunos', (req, res) => {
     })
 });
 
-
 router.get('/alunos/:curso/:ano', (req, res) => {
     const {curso, ano} = req.params;
     mysqlCon.query(queryAlunoCurso, [curso, ano], (error, rows, fields) => {
