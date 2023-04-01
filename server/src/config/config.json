@@ -1,0 +1,9 @@
+{
+  "production": {
+    "database": "PCCT"
+    "dialect": "mysql",
+    "host": "localhost",
+    "username": "root",
+    "password": "MYSQLROOT3306"
+  }
+}

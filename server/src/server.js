@@ -5,7 +5,7 @@ import routeAluno from './routes/aluno.js';
 import routeTurma from './routes/turma.js';
 
 // Settings
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT);
 
 // Middlewares
 app.use(express.json());
