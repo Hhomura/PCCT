@@ -1,8 +1,8 @@
-import express from 'express';
+const express = require('express');
 const app = express();
 
-import routeAluno from './routes/aluno.js';
-import routeTurma from './routes/turma.js';
+const routeAluno = require('./routes/aluno.js');
+const routeTurma = require('./routes/turma.js');
 
 // Settings
 app.set('port', process.env.PORT);
@@ -19,4 +19,4 @@ app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 });
 
-export default app;
+module.exports = app;

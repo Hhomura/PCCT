@@ -1,5 +1,5 @@
-import Router from 'express';
-import mysqlCon from '../database.js';
+const Router = require('express');
+const mysqlCon = require('../database.js');
 
 const router = Router();
 
@@ -54,4 +54,4 @@ router.get('/alunos/:curso/:ano/:dia', (req, res) => {
 })
 
 
-export default router;
+module.exports = router;

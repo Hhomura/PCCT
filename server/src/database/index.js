@@ -1,5 +1,5 @@
-import {Sequelize} from 'sequelize'
-import config from '../config/database.js'
+const {Sequelize} = require('sequelize')
+const config = require('../config/database.js')
 
 const sequelize = Sequelize(config)
 
